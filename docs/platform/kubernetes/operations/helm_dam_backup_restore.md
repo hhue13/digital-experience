@@ -46,7 +46,7 @@ This procedure is not meant for moving DAM data to another deployment. The backu
         **Example:**
 
         ```
-        kubectl scale statefulsets dx-deployment-persistence-node -d dxns --replicas=1
+        kubectl scale statefulsets dx-deployment-persistence-node -n dxns --replicas=1
         ```
 
         !!! note
