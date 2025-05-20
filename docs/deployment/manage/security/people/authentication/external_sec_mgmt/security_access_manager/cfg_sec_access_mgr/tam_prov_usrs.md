@@ -270,7 +270,7 @@ You can configure Security Access Manager for authentication, authorization, and
 
     2.  Go to **Resources** \> **Resource Environment** \> **Resource Environment Providers**.
 
-    3.  Click **WP CredentialVaultService**.
+    3.  Click **WP VaultService**.
 
     4.  Under **Additional Properties**, click **Custom properties**.
 
