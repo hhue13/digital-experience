@@ -578,7 +578,7 @@ Common command arguments can be pre-configured inside the config.json file avail
 
 Starting CF226, DXClient no longer ignores certificates that cannot be properly validated when using Transport Layer Security (TLS) connections. This is to improve security and maintain best practices in development and production environments. You can validate and trust custom certificates such as self-signed or third-party CAs without entirely disabling validation.
 
-1. Obtain the certificate. Ensure you have the `.pem` certificate file that you wish to add to the truststore. It must contain the key and certificate files.
+1. Obtain the certificate. Ensure you have the `.pem` certificate file that you wish to add to the truststore. It must contain the full signer certificate chain to be able to establish trust.
 
 2. Add the certificate using one of the following methods:
     1. Use the `NODE_EXTRA_CA_CERTS` environment variable. `NODE_EXTRA_CA_CERTS` provides a secure way to add custom trusted certificates. To use the `NODE_EXTRA_CA_CERTS` environment variable, you need to specify the path to a PEM file that contains the key and certificate details. Configure this variable in your local or production environment using the following command:
@@ -594,6 +594,9 @@ Starting CF226, DXClient no longer ignores certificates that cannot be properly 
             ```
 
     2. Add certificate to the truststore on your operating system.
+
+!!!imortant
+This method does not work if using the dxclient image to run dxclient
 
 !!!important
     In local or development environments, you may want to disable this security feature to allow connections to services with self-signed or invalid certificates. By setting `NODE_TLS_REJECT_UNAUTHORIZED` to `0`, you can bypass certificate validation. This can be useful for testing, but it should never be used in production environments because it can expose your application to potential security risks.
