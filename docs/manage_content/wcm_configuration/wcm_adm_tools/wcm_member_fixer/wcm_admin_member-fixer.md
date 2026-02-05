@@ -48,9 +48,12 @@ If custom mapping is required you must perform the following steps to map the us
 
     A detailed report containing the updates that will be made for each item will be shown in the job log for the portal application server.
 
+    !!!note
+    To get more detailed information of the invalid IDs reported by the memberfixer task enable the following WebSphere Application Server trace for the server(s) on which memberfixer runs: `com.ibm.workplace.wcm.services.memberfixer.PrincipalInfoProcessor=finest`. See: [HCL Support article KB0087784](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0087784) for more details. 
+
     If the report indicates that the update will not happen as required, change the member fixer task parameters and run the report mode again. Repeat this process until you are satisfied that the fixes will be applied correctly. This is important because the fixes made by the member fixer task when run in fix mode may not be easy to undo if incorrect fixes are applied.
 
-3.  If there have been changes to users and groups, update the items that reference them by running the run-wcm-admin-task-member-fixer task. If the member fixer task indicates that certain mismatched member conditions exist, append the specified parameters to the command.
+4.  If there have been changes to users and groups, update the items that reference them by running the run-wcm-admin-task-member-fixer task. If the member fixer task indicates that certain mismatched member conditions exist, append the specified parameters to the command.
 
     |Condition description|Command to correct condition|
     |---------------------|----------------------------|
@@ -69,7 +72,7 @@ If custom mapping is required you must perform the following steps to map the us
     !!!note
         An administrator user name and password is not required if you have already specified the portal administrator username and password using the PortalAdminId and PortalAdminPwd settings in the wkplc.properties file.
 
-4.  After the member fixer task runs, review the log output to verify that the task ran correctly. The member fixer task may not be able to save items that fail validation, such as items that contain invalid fields. You must edit these items to make them valid and then run the member fixer task again.
+5.  After the member fixer task runs, review the log output to verify that the task ran correctly. The member fixer task may not be able to save items that fail validation, such as items that contain invalid fields. You must edit these items to make them valid and then run the member fixer task again.
 
 ## Running the Member Fixer in a federated security environment
 
